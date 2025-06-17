@@ -7,7 +7,7 @@ import { LazyModuleLoader } from '../injector/lazy-module-loader/lazy-module-loa
 import { ModuleRef } from '../injector/module-ref';
 import { ModulesContainer } from '../injector/modules-container';
 import { REQUEST } from '../router/request/request-constants';
-import { Reflector } from '../services/reflector.service';
+import { Reflector } from '@nestjs/reflector';
 import { DeterministicUuidRegistry } from './deterministic-uuid-registry';
 import { Edge } from './interfaces/edge.interface';
 import { Entrypoint } from './interfaces/entrypoint.interface';

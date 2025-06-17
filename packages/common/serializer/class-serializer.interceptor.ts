@@ -2,6 +2,7 @@ import { ClassSerializerContextOptions } from './class-serializer.interfaces';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Inject, Injectable, Optional } from '../decorators/core';
+import { Reflector } from '@nestjs/reflector';
 import { StreamableFile } from '../file-stream';
 import { CallHandler, ExecutionContext, NestInterceptor } from '../interfaces';
 import { ClassTransformOptions } from '../interfaces/external/class-transform-options.interface';
@@ -16,10 +17,6 @@ export interface PlainLiteralObject {
   [key: string]: any;
 }
 
-// NOTE (external)
-// We need to deduplicate them here due to the circular dependency
-// between core and common packages
-const REFLECTOR = 'Reflector';
 
 /**
  * @publicApi
@@ -35,7 +32,7 @@ export interface ClassSerializerInterceptorOptions
 @Injectable()
 export class ClassSerializerInterceptor implements NestInterceptor {
   constructor(
-    @Inject(REFLECTOR) protected readonly reflector: any,
+    @Inject(Reflector) protected readonly reflector: any,
     @Optional()
     protected readonly defaultOptions: ClassSerializerInterceptorOptions = {},
   ) {

@@ -8,6 +8,9 @@
       "path": "./core/tsconfig.build.json"
     },
     {
+      "path": "./reflector/tsconfig.build.json"
+    },
+    {
       "path": "./microservices/tsconfig.build.json"
     },
     {

@@ -2,11 +2,7 @@
   "extends": "../tsconfig.build.json",
   "compilerOptions": {
     "outDir": ".",
-    "rootDir": ".",
-    "paths": {
-      "@nestjs/reflector": ["../reflector"],
-      "@nestjs/reflector/*": ["../reflector/*"]
-    }
+    "rootDir": "."
   },
   "exclude": ["node_modules", "dist", "test/**/*", "*.spec.ts"],
   "references": []

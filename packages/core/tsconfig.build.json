@@ -9,7 +9,9 @@
       "@nestjs/microservices": ["../microservices"],
       "@nestjs/microservices/*": ["../microservices/*"],
       "@nestjs/websockets": ["../websockets"],
-      "@nestjs/websockets/*": ["../websockets/*"]
+      "@nestjs/websockets/*": ["../websockets/*"],
+      "@nestjs/reflector": ["../reflector"],
+      "@nestjs/reflector/*": ["../reflector/*"]
     }
   },
   "exclude": ["node_modules", "dist", "test/**/*", "*.spec.ts"],
