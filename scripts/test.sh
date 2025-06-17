@@ -1,3 +1,3 @@
 # Run both unit and integration tests
-npm run test
-npm run test:integration
+pnpm run test
+pnpm run test:integration
