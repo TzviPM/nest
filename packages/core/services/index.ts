@@ -1,1 +1,1 @@
-export * from './reflector.service';
+export * from '@nestjs/reflector';

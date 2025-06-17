@@ -1,0 +1,26 @@
+{
+  "name": "@nestjs/reflector",
+  "version": "11.1.3",
+  "description": "Nest - reflection utilities",
+  "author": "Kamil Mysliwiec",
+  "homepage": "https://nestjs.com",
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/nest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nestjs/nest.git",
+    "directory": "packages/reflector"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "uid": "2.0.2"
+  },
+  "peerDependencies": {
+    "reflect-metadata": "^0.1.12 || ^0.2.0"
+  }
+}
