@@ -29,15 +29,15 @@ aliases:
   - &install-deps
     run:
       name: Install dependencies
-      command: npm install --legacy-peer-deps
+      command: pnpm install --frozen-lockfile
   - &build-packages
     run:
       name: Build
-      command: npm run build
+      command: pnpm run build
   - &run-unit-tests
     run:
       name: Test
-      command: npm run test
+      command: pnpm run test
 
 jobs:
   build:
@@ -47,8 +47,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Update NPM version
-          command: 'sudo npm install -g npm@^9'
+          name: Install pnpm
+          command: npm install -g pnpm
       - *restore-cache
       - *install-deps
       - *save-cache
@@ -101,10 +101,10 @@ jobs:
                 steps:
                   - run:
                       name: Test (coverage)
-                      command: npm run test:cov
+                      command: pnpm run test:cov
                   - run:
                       name: Collect coverage
-                      command: npm run coverage
+                      command: pnpm run coverage
                   - store_artifacts:
                       path: coverage
             - when:
@@ -128,7 +128,7 @@ jobs:
       - *install-deps
       - run:
           name: Lint
-          command: npm run lint:ci
+          command: pnpm run lint:ci
 
   integration_tests:
     working_directory: ~/nest
@@ -163,7 +163,7 @@ jobs:
           command: docker ps
       - run:
           name: Integration tests
-          command: npm run test:integration
+          command: pnpm run test:integration
 
   codechecks_benchmarks:
     working_directory: ~/nest
@@ -193,7 +193,7 @@ jobs:
       - *install-deps
       - run:
           name: Build all samples
-          command: npm run build:samples
+          command: pnpm run build:samples
 
 workflows:
   build-and-test:

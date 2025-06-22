@@ -1,4 +1,4 @@
-# 1. Build fresh packages and move them integration dit
+# 1. Build fresh packages for integration tests
 pnpm run build &>/dev/null
 
 # 2. Start docker containers to perform integration tests
