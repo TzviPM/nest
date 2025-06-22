@@ -4,14 +4,14 @@
     "outDir": ".",
     "rootDir": ".",
     "paths": {
-      "@nestjs/reflector": ["../reflector"],
-      "@nestjs/reflector/*": ["../reflector/*"]
+      "@nestjs/common": ["../common"],
+      "@nestjs/common/*": ["../common/*"]
     }
   },
   "exclude": ["node_modules", "dist", "test/**/*", "*.spec.ts"],
   "references": [
     {
-      "path": "../reflector/tsconfig.build.json"
+      "path": "../common/tsconfig.build.json"
     }
   ]
 }

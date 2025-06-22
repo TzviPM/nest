@@ -1,4 +1,4 @@
-import { loadPackage } from '@nestjs/common/utils/load-package.util';
+import { loadPackage } from '@nestjs/node/utils/load-package.util';
 import { isObject } from '@nestjs/common/utils/shared.utils';
 import { NatsCodec } from '../external/nats-codec.interface';
 import { ReadPacket } from '../interfaces';

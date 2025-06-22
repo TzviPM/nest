@@ -1,31 +1,17 @@
-interface InspectOptions {
-  depth?: number;
-  colors?: boolean;
-  breakLength?: number;
-  maxArrayLength?: number;
-  maxStringLength?: number;
-  compact?: boolean | number;
-  sorted?: boolean | ((a: string, b: string) => number);
-  showHidden?: boolean;
-}
-
-function inspect(value: unknown, _options?: InspectOptions) {
-  try {
-    return JSON.stringify(value);
-  } catch {
-    return String(value);
-  }
-}
-import { Injectable, Optional } from '../decorators/core';
+import { inspect, InspectOptions } from 'util';
+import { Injectable, Optional } from '@nestjs/common/decorators/core';
 import { clc, yellow } from '../utils/cli-colors.util';
 import {
   isFunction,
   isPlainObject,
   isString,
   isUndefined,
-} from '../utils/shared.utils';
-import { LoggerService, LogLevel } from './logger.service';
-import { isLogLevelEnabled } from './utils/is-log-level-enabled.util';
+} from '@nestjs/common/utils/shared.utils';
+import {
+  LoggerService,
+  LogLevel,
+} from '@nestjs/common/services/logger.service';
+import { isLogLevelEnabled } from '@nestjs/common/services/utils/is-log-level-enabled.util';
 
 const DEFAULT_DEPTH = 5;
 
@@ -130,7 +116,7 @@ const dateTimeFormatter = new Intl.DateTimeFormat(undefined, {
  * @publicApi
  */
 @Injectable()
-export class ConsoleLogger implements LoggerService {
+export class StdLogger implements LoggerService {
   /**
    * The options of the logger.
    */
@@ -338,7 +324,7 @@ export class ConsoleLogger implements LoggerService {
         });
         return;
       }
-      const pidMessage = this.formatPid();
+      const pidMessage = this.formatPid(process.pid);
       const contextMessage = this.formatContext(context);
       const timestampDiff = this.updateAndGetTimestampDiff();
       const formattedLogLevel = logLevel.toUpperCase().padStart(7, ' ');
@@ -351,16 +337,7 @@ export class ConsoleLogger implements LoggerService {
         timestampDiff,
       );
 
-      const output = formattedMessage.trimEnd();
-      if (writeStreamType === 'stderr' || logLevel === 'error') {
-        console.error(output);
-      } else if (logLevel === 'warn') {
-        console.warn(output);
-      } else if (logLevel === 'debug') {
-        console.debug?.(output);
-      } else {
-        console.log(output);
-      }
+      process[writeStreamType ?? 'stdout'].write(formattedMessage);
     });
   }
 
@@ -375,6 +352,7 @@ export class ConsoleLogger implements LoggerService {
   ) {
     type JsonLogObject = {
       level: LogLevel;
+      pid: number;
       timestamp: number;
       message: unknown;
       context?: string;
@@ -383,6 +361,7 @@ export class ConsoleLogger implements LoggerService {
 
     const logObject: JsonLogObject = {
       level: options.logLevel,
+      pid: process.pid,
       timestamp: Date.now(),
       message,
     };
@@ -399,20 +378,11 @@ export class ConsoleLogger implements LoggerService {
       !this.options.colors && this.inspectOptions.compact === true
         ? JSON.stringify(logObject, this.stringifyReplacer)
         : inspect(logObject, this.inspectOptions);
-    const output = formattedMessage;
-    if (options.writeStreamType === 'stderr' || options.logLevel === 'error') {
-      console.error(output);
-    } else if (options.logLevel === 'warn') {
-      console.warn(output);
-    } else if (options.logLevel === 'debug') {
-      console.debug?.(output);
-    } else {
-      console.log(output);
-    }
+    process[options.writeStreamType ?? 'stdout'].write(`${formattedMessage}\n`);
   }
 
-  protected formatPid() {
-    return this.options.prefix ? `[${this.options.prefix}] ` : '';
+  protected formatPid(pid: number) {
+    return `[${this.options.prefix}] ${pid}  - `;
   }
 
   protected formatContext(context: string): string {
@@ -476,16 +446,16 @@ export class ConsoleLogger implements LoggerService {
     if (!stack || this.options.json) {
       return;
     }
-    console.error(stack);
+    process.stderr.write(`${stack}\n`);
   }
 
   protected updateAndGetTimestampDiff(): string {
     const includeTimestamp =
-      ConsoleLogger.lastTimestampAt && this.options?.timestamp;
+      StdLogger.lastTimestampAt && this.options?.timestamp;
     const result = includeTimestamp
-      ? this.formatTimestampDiff(Date.now() - ConsoleLogger.lastTimestampAt!)
+      ? this.formatTimestampDiff(Date.now() - StdLogger.lastTimestampAt!)
       : '';
-    ConsoleLogger.lastTimestampAt = Date.now();
+    StdLogger.lastTimestampAt = Date.now();
     return result;
   }
 

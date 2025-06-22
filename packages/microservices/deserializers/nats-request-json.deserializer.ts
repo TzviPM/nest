@@ -1,4 +1,4 @@
-import { loadPackage } from '@nestjs/common/utils/load-package.util';
+import { loadPackage } from '@nestjs/node/utils/load-package.util';
 import { NatsCodec } from '../external/nats-codec.interface';
 import { IncomingEvent, IncomingRequest } from '../interfaces';
 import { IncomingRequestDeserializer } from './incoming-request.deserializer';

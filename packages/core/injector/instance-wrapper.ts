@@ -1,7 +1,7 @@
 import { Logger, LoggerService, Provider, Scope, Type } from '@nestjs/common';
 import { EnhancerSubtype } from '@nestjs/common/constants';
 import { FactoryProvider, InjectionToken } from '@nestjs/common/interfaces';
-import { clc } from '@nestjs/common/utils/cli-colors.util';
+import { clc } from '@nestjs/node/utils/cli-colors.util';
 import { randomStringGenerator } from '@nestjs/common/utils/random-string-generator.util';
 import {
   isNil,

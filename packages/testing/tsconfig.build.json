@@ -11,7 +11,9 @@
       "@nestjs/microservices": ["../microservices"],
       "@nestjs/microservices/*": ["../microservices/*"],
       "@nestjs/platform-express": ["../platform-express"],
-      "@nestjs/platform-express/*": ["../platform-express/*"]
+      "@nestjs/platform-express/*": ["../platform-express/*"],
+      "@nestjs/node": ["../node"],
+      "@nestjs/node/*": ["../node/*"]
     }
   },
   "exclude": ["node_modules", "dist", "test/**/*", "*.spec.ts"],
@@ -27,6 +29,12 @@
     },
     {
       "path": "../platform-express/tsconfig.build.json"
+    },
+    {
+      "path": "../reflector/tsconfig.build.json"
+    },
+    {
+      "path": "../node/tsconfig.build.json"
     }
   ]
 }

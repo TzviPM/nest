@@ -1,5 +1,5 @@
 import { iterate } from 'iterare';
-import { clc } from '@nestjs/common/utils/cli-colors.util';
+import { clc } from '@nestjs/node/utils/cli-colors.util';
 import { ReplFunction } from '../repl-function';
 import type { ReplFnDefinition } from '../repl.interfaces';
 

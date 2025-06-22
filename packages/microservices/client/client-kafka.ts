@@ -1,5 +1,5 @@
 import { Logger } from '@nestjs/common/services/logger.service';
-import { loadPackage } from '@nestjs/common/utils/load-package.util';
+import { loadPackage } from '@nestjs/node/utils/load-package.util';
 import { isNil, isUndefined } from '@nestjs/common/utils/shared.utils';
 import {
   throwError as _throw,

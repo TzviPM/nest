@@ -3,11 +3,11 @@ import {
   InternalServerErrorException,
   Logger,
   RequestMethod,
-  StreamableFile,
   VERSION_NEUTRAL,
   VersioningOptions,
   VersioningType,
 } from '@nestjs/common';
+import { StreamableFile } from '@nestjs/node/file-stream';
 import { VersionValue } from '@nestjs/common/interfaces';
 import {
   CorsOptions,

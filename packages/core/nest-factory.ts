@@ -11,7 +11,7 @@ import { NestMicroserviceOptions } from '@nestjs/common/interfaces/microservices
 import { NestApplicationContextOptions } from '@nestjs/common/interfaces/nest-application-context-options.interface';
 import { NestApplicationOptions } from '@nestjs/common/interfaces/nest-application-options.interface';
 import { Logger } from '@nestjs/common/services/logger.service';
-import { loadPackage } from '@nestjs/common/utils/load-package.util';
+import { loadPackage } from '@nestjs/node/utils/load-package.util';
 import { isFunction, isNil } from '@nestjs/common/utils/shared.utils';
 import { AbstractHttpAdapter } from './adapters/http-adapter';
 import { ApplicationConfig } from './application-config';
