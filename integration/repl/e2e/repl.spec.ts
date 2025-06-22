@@ -1,4 +1,4 @@
-import { clc } from '@nestjs/common/utils/cli-colors.util';
+import { clc } from '@nestjs/node/utils/cli-colors.util';
 import { repl } from '@nestjs/core';
 import {
   DebugReplFn,

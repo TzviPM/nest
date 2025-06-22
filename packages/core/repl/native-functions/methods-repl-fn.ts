@@ -1,5 +1,5 @@
 import type { Type } from '@nestjs/common';
-import { clc } from '@nestjs/common/utils/cli-colors.util';
+import { clc } from '@nestjs/node/utils/cli-colors.util';
 import { MetadataScanner } from '../../metadata-scanner';
 import { ReplFunction } from '../repl-function';
 import type { ReplFnDefinition } from '../repl.interfaces';

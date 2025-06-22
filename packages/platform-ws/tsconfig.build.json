@@ -7,7 +7,9 @@
       "@nestjs/common": ["../common"],
       "@nestjs/common/*": ["../common/*"],
       "@nestjs/websockets": ["../websockets"],
-      "@nestjs/websockets/*": ["../websockets/*"]
+      "@nestjs/websockets/*": ["../websockets/*"],
+      "@nestjs/node": ["../node"],
+      "@nestjs/node/*": ["../node/*"]
     }
   },
   "exclude": ["node_modules", "dist", "test/**/*", "*.spec.ts"],
@@ -17,6 +19,9 @@
     },
     {
       "path": "../websockets/tsconfig.build.json"
+    },
+    {
+      "path": "../node/tsconfig.build.json"
     }
   ]
 }

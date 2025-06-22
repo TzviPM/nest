@@ -1,5 +1,5 @@
 import { INestApplicationContext, Logger } from '@nestjs/common';
-import { loadPackage } from '@nestjs/common/utils/load-package.util';
+import { loadPackage } from '@nestjs/node/utils/load-package.util';
 import { isNil, normalizePath } from '@nestjs/common/utils/shared.utils';
 import { AbstractWsAdapter } from '@nestjs/websockets';
 import {

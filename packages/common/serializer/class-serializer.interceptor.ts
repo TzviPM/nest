@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Inject, Injectable, Optional } from '../decorators/core';
 import { Reflector } from '@nestjs/reflector';
-import { StreamableFile } from '../file-stream';
+import { StreamableFile } from '@nestjs/node/file-stream';
 import { CallHandler, ExecutionContext, NestInterceptor } from '../interfaces';
 import { ClassTransformOptions } from '../interfaces/external/class-transform-options.interface';
 import { TransformerPackage } from '../interfaces/external/transformer-package.interface';
@@ -16,7 +16,6 @@ let classTransformer: TransformerPackage = {} as any;
 export interface PlainLiteralObject {
   [key: string]: any;
 }
-
 
 /**
  * @publicApi

@@ -1,5 +1,5 @@
 import { Logger } from '@nestjs/common/services/logger.service';
-import { loadPackage } from '@nestjs/common/utils/load-package.util';
+import { loadPackage } from '@nestjs/node/utils/load-package.util';
 import { isFunction, isObject } from '@nestjs/common/utils/shared.utils';
 import { Observable, Subscription } from 'rxjs';
 import { GRPC_DEFAULT_PROTO_LOADER, GRPC_DEFAULT_URL } from '../constants';

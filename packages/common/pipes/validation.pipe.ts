@@ -1,5 +1,4 @@
 import { iterate } from 'iterare';
-import { types } from 'util';
 import { Optional } from '../decorators';
 import { Injectable } from '../decorators/core';
 import { HttpStatus } from '../enums/http-status.enum';
@@ -249,7 +248,7 @@ export class ValidationPipe implements PipeTransform<any> {
     if (
       value == null ||
       typeof value !== 'object' ||
-      types.isTypedArray(value)
+      (typeof ArrayBuffer !== 'undefined' && ArrayBuffer.isView(value))
     ) {
       return;
     }

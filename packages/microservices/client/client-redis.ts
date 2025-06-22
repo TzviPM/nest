@@ -1,5 +1,5 @@
 import { Logger } from '@nestjs/common/services/logger.service';
-import { loadPackage } from '@nestjs/common/utils/load-package.util';
+import { loadPackage } from '@nestjs/node/utils/load-package.util';
 import { REDIS_DEFAULT_HOST, REDIS_DEFAULT_PORT } from '../constants';
 import {
   RedisEvents,

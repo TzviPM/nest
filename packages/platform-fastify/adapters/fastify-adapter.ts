@@ -5,13 +5,13 @@ import {
   Logger,
   RawBodyRequest,
   RequestMethod,
-  StreamableFile,
   VERSION_NEUTRAL,
   VersioningOptions,
   VersioningType,
 } from '@nestjs/common';
+import { StreamableFile } from '@nestjs/node/file-stream';
 import { VersionValue } from '@nestjs/common/interfaces';
-import { loadPackage } from '@nestjs/common/utils/load-package.util';
+import { loadPackage } from '@nestjs/node/utils/load-package.util';
 import { isString, isUndefined } from '@nestjs/common/utils/shared.utils';
 import { AbstractHttpAdapter } from '@nestjs/core/adapters/http-adapter';
 import { LegacyRouteConverter } from '@nestjs/core/router/legacy-route-converter';

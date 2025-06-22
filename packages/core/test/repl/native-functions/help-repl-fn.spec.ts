@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import * as sinon from 'sinon';
-import { clc } from '@nestjs/common/utils/cli-colors.util';
+import { clc } from '@nestjs/node/utils/cli-colors.util';
 import { HelpReplFn } from '../../../repl/native-functions';
 import { ReplContext } from '../../../repl/repl-context';
 import { NestContainer } from '../../../injector/container';

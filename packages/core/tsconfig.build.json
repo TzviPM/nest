@@ -11,13 +11,21 @@
       "@nestjs/websockets": ["../websockets"],
       "@nestjs/websockets/*": ["../websockets/*"],
       "@nestjs/reflector": ["../reflector"],
-      "@nestjs/reflector/*": ["../reflector/*"]
+      "@nestjs/reflector/*": ["../reflector/*"],
+      "@nestjs/node": ["../node"],
+      "@nestjs/node/*": ["../node/*"]
     }
   },
   "exclude": ["node_modules", "dist", "test/**/*", "*.spec.ts"],
   "references": [
     {
       "path": "../common/tsconfig.build.json"
+    },
+    {
+      "path": "../reflector/tsconfig.build.json"
+    },
+    {
+      "path": "../node/tsconfig.build.json"
     }
   ]
 }

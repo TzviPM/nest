@@ -36,7 +36,9 @@
       "@nestjs/platform-socket.io": ["./packages/platform-socket.io"],
       "@nestjs/platform-socket.io/*": ["./packages/platform-socket.io/*"],
       "@nestjs/reflector": ["./packages/reflector"],
-      "@nestjs/reflector/*": ["./packages/reflector/*"]
+      "@nestjs/reflector/*": ["./packages/reflector/*"],
+      "@nestjs/node": ["./packages/node"],
+      "@nestjs/node/*": ["./packages/node/*"]
     }
   },
   "include": ["packages/**/*", "integration/**/*"],

@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "iterare": "1.2.1",
-    "tslib": "2.8.1"
+    "tslib": "2.8.1",
+    "@nestjs/node": "workspace:*"
   },
   "devDependencies": {
     "@nestjs/common": "workspace:*",
