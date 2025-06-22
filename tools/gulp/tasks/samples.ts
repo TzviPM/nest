@@ -105,15 +105,12 @@ async function executeNPMScriptInDirectory(
 }
 
 task('install:samples', async () =>
-  executeNpmScriptInSamples(
-    // 'npm ci --no-audit --no-shrinkwrap --no-optional',
-    'npm install --legacy-peer-deps',
-  ),
+  executeNpmScriptInSamples('pnpm install --no-frozen-lockfile'),
 );
-task('build:samples', async () => executeNpmScriptInSamples('npm run build'));
+task('build:samples', async () => executeNpmScriptInSamples('pnpm run build'));
 task('test:samples', async () =>
-  executeNpmScriptInSamples('npm run test', '--passWithNoTests'),
+  executeNpmScriptInSamples('pnpm run test', '--passWithNoTests'),
 );
 task('test:e2e:samples', async () =>
-  executeNpmScriptInSamples('npm run test:e2e', '--passWithNoTests'),
+  executeNpmScriptInSamples('pnpm run test:e2e', '--passWithNoTests'),
 );

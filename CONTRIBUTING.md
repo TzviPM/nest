@@ -173,13 +173,13 @@ $ npm ci --legacy-peer-deps # (or yarn install)
 $ sh scripts/prepare.sh
 ```
 
-That will compile fresh packages and afterward, move them all to `sample` directories.
+That will compile fresh packages used in integration tests and samples.
 
 ### <a name="common-scripts"></a>Commonly used NPM scripts
 
 ```bash
-# build all packages and move to "sample" directories
-$ npm run build
+# build all packages
+$ pnpm run build
 
 # run the full unit tests suite
 $ npm run test

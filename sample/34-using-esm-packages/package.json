@@ -24,9 +24,9 @@
     "test:e2e": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/common": "11.x",
-    "@nestjs/core": "11.x",
-    "@nestjs/platform-express": "11.x",
+    "@nestjs/common": "workspace:*",
+    "@nestjs/core": "workspace:*",
+    "@nestjs/platform-express": "workspace:*",
     "delay": "6.x",
     "reflect-metadata": "0.2.2",
     "rxjs": "7.x",
@@ -35,7 +35,7 @@
   "devDependencies": {
     "@nestjs/cli": "11.x",
     "@nestjs/schematics": "11.x",
-    "@nestjs/testing": "11.x",
+    "@nestjs/testing": "workspace:*",
     "@types/express": "5.x",
     "@types/jest": "29.x",
     "@types/node": "22.x",
