@@ -6,13 +6,6 @@ import { containsPackageJson, getDirs } from '../util/task-helpers';
 const distFiles = src(['packages/**/*.js', 'packages/**/*.d.ts']);
 
 /**
- * Moves the compiled nest files into "node_module" folder.
- */
-function moveToNodeModules() {
-  return distFiles.pipe(dest('node_modules/@nestjs'));
-}
-
-/**
  * Moves the compiled nest files into the `samples/*` dirs.
  */
 function moveToSamples() {
@@ -39,5 +32,4 @@ function moveToSamples() {
   );
 }
 
-task('move:node_modules', moveToNodeModules);
 task('move:samples', moveToSamples);
